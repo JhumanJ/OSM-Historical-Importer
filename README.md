@@ -1,5 +1,6 @@
 # OSM-Historical-Importer
 Import an OSM historical file into a PostgreSQL database.
+Made with Python 3.
 
 This scripts uses [pyosmium](https://github.com/osmcode/pyosmium) to parse an OSM historical file, and then imports the data into a PostgreSQL database.
 

@@ -9,12 +9,13 @@ Simply modify the DB variables, and run using:
 import osmium as o
 import sys
 from datetime import date
+from progress.bar import Bar
 import psycopg2
 import pprint
 import json
 
-DB_NAME='osmandorra'
-DB_USER='Julien'
+DB_NAME=''
+DB_USER=''
 DB_PWD=''
 DB_HOST='localhost'
 DB_PORT='5432'
@@ -75,18 +76,50 @@ class DB(object):
             foreign key (id,version) references ways(id,version),
             PRIMARY KEY (id,version,sequence_id)
         )
-        """]
+        """,
+        """CREATE TABLE IF NOT EXISTS relations (
+            id BIGINT NOT NULL,
+            deleted BOOLEAN NOT NULL,
+            visible BOOLEAN NOT NULL,
+            version BIGINT NOT NULL,
+            changeset BIGINT NOT NULL,
+            uniqueid BIGINT NOT NULL,
+            created_at TIMESTAMP NOT NULL,
+            user_name VARCHAR(255) NOT NULL,
+            tags jsonb NOT NULL,
+            PRIMARY KEY (id, version)
+        )
+        """,
+        """CREATE TABLE IF NOT EXISTS relations_members (
+            id BIGINT NOT NULL,
+            version BIGINT NOT NULL,
+            member_id BIGINT NOT NULL,
+            member_type CHAR(1) NOT NULL,
+            member_role VARCHAR(255),
+            sequence_id BIGINT NOT NULL,
+            foreign key (id,version) references relations(id,version),
+            PRIMARY KEY (id,version,sequence_id)
+        )
+        """,]
 
         self.execute(commands)
 
-    def execute(self,commands=[]):
+    def execute(self,commands=[],total=0):
+
+        if total != 0:
+            bar = Bar('Processing', max=total, suffix='%(percent)d%% - %(elapsed)ds')
+
         try:
             cur = self.connection.cursor()
             # create table one by one
             for command in commands:
                 cur.execute(command)
+                if total != 0 and "relations_members" not in command and "ways_nodes" not in command:
+                    bar.next()
             # close communication with the PostgreSQL database server
             cur.close()
+            if total != 0:
+                bar.finish()
             # commit the changes
             self.connection.commit()
         except (Exception, psycopg2.DatabaseError) as error:
@@ -119,9 +152,13 @@ class Importer(object):
 
         if self.datatype==NODE_TYPE:
             self.insertion_commands.append(self.insertNodeSQL(o))
-
-        if self.datatype==WAY_TYPE:
+        elif self.datatype==WAY_TYPE:
             self.insertion_commands += self.insertWaySQL(o)
+        elif self.datatype==RELATION_TYPE:
+            self.insertion_commands += self.insertRelationSQL(o)
+        else:
+            print('\033[91m'+"\nERROR: type"+str( self.datatype)+" not found, or not handled."+'\033[0m')
+            sys.exit(-1)
 
     def jsonifyTags(self,tags):
 
@@ -132,7 +169,7 @@ class Importer(object):
         return json.dumps(jsontags)
 
     def executeImport(self):
-        self.db.execute(self.insertion_commands)
+        self.db.execute(self.insertion_commands,self.added+self.modified+self.deleted)
 
     # Return a SQL command to insert a node
     def insertNodeSQL(self,o):
@@ -144,15 +181,10 @@ class Importer(object):
 
         return query.format(o.id,o.deleted,o.visible,o.version,o.changeset,o.uid,o.timestamp,o.user.replace("'",""),o.location.x, o.location.y, o.jsontags)
 
-    # Return a SQL command to insert a node
+    # Return am array of SQL commands to insert a way
     def insertWaySQL(self,o):
         if self.datatype!=WAY_TYPE:
             return
-
-        # if (o.id==6165450 and o.version==1):
-        #     print()
-        #     pprint.pprint(o.nodes)
-
         query = """INSERT INTO ways VALUES ({0}, {1}, {2} , {3}, {4}, {5}, '{6}','{7}','{8}');"""
 
         queries = [query.format(o.id,o.deleted,o.visible,o.version,o.changeset,o.uid,o.timestamp,o.user.replace("'",""), o.jsontags)]
@@ -165,6 +197,21 @@ class Importer(object):
 
         return queries
 
+    # Return am array of SQL commands to insert a relation
+    def insertRelationSQL(self,o):
+        if self.datatype!=RELATION_TYPE:
+            return
+        query = """INSERT INTO relations VALUES ({0}, {1}, {2} , {3}, {4}, {5}, '{6}','{7}','{8}');"""
+
+        queries = [query.format(o.id,o.deleted,o.visible,o.version,o.changeset,o.uid,o.timestamp,o.user.replace("'",""), o.jsontags)]
+
+        node_way_query = """ INSERT INTO relations_members VALUES ({0}, {1}, {2}, '{3}', '{4}', {5}) """
+        sequence_id=0
+        for member in o.members:
+            queries.append( node_way_query.format(o.id,o.version,member.ref,member.type,member.role,sequence_id) )
+            sequence_id += 1
+
+        return queries
 
     # Print stats of inserted items
     def outstats(self):
@@ -223,11 +270,12 @@ if __name__ == '__main__':
     h.ways.outstats()
     h.rels.outstats()
 
-    print("\nStarting nodes import...",end='')
+    print("Starting nodes import...")
     h.nodes.executeImport()
-    print("OK")
-    print("Starting ways import...",end='')
+    print("Starting ways import...")
     h.ways.executeImport()
+    print("Starting relations import...")
+    h.rels.executeImport()
     print("OK")
 
     print(green+"Import successful!"+white)
