@@ -208,7 +208,7 @@ class Importer(object):
         node_way_query = """ INSERT INTO relations_members VALUES ({0}, {1}, {2}, '{3}', '{4}', {5}) """
         sequence_id=0
         for member in o.members:
-            queries.append( node_way_query.format(o.id,o.version,member.ref,member.type,member.role,sequence_id) )
+            queries.append( node_way_query.format(o.id,o.version,member.ref,member.type.replace("'",""),member.role.replace("'",""),sequence_id) )
             sequence_id += 1
 
         return queries
