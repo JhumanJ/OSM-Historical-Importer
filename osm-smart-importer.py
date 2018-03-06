@@ -9,16 +9,16 @@ Simply modify the DB variables, and run using:
 import osmium as o
 import sys
 from datetime import date
-from progress.bar import Bar
+import time
 import psycopg2
 import pprint
 import json
 
-DB_NAME='osmukraine'
+DB_NAME='osmlondon'
 DB_USER='Julien'
 DB_PWD=''
 DB_HOST='localhost'
-DB_PORT='5432'
+DB_PORT='5433'
 
 NODE_TYPE="Nodes"
 WAY_TYPE="Ways"
@@ -72,7 +72,10 @@ class DB(object):
             id BIGINT NOT NULL,
             version BIGINT NOT NULL,
             node_id BIGINT NOT NULL,
+            node_version BIGINT NOT NULL,
             sequence_id BIGINT NOT NULL,
+            latitude INT NOT NULL,
+            longitude INT NOT NULL,
             foreign key (id,version) references ways(id,version),
             PRIMARY KEY (id,version,sequence_id)
         )
@@ -104,24 +107,36 @@ class DB(object):
 
         self.execute(commands)
 
-    def execute(self,commands=[],total=0):
-
-        if total != 0:
-            bar = Bar('Processing', max=total, suffix='%(percent)d%% - %(elapsed)ds')
-
+    def execute(self,commands=[]):
         try:
             cur = self.connection.cursor()
             # create table one by one
             for command in commands:
                 cur.execute(command)
-                if total != 0 and "relations_members" not in command and "ways_nodes" not in command:
-                    bar.next()
+
             # close communication with the PostgreSQL database server
             cur.close()
-            if total != 0:
-                bar.finish()
+
             # commit the changes
             self.connection.commit()
+        except (Exception, psycopg2.DatabaseError) as error:
+            print('\033[91m'+"\nSQL ERROR:\n"+str(error)+'\033[0m')
+            sys.exit(-1)
+
+    def executeAndReturn(self,command):
+        try:
+            cur = self.connection.cursor()
+            # create table one by one
+            cur.execute(command)
+
+            result = cur.fetchone()
+            # close communication with the PostgreSQL database server
+            cur.close()
+
+            # commit the changes
+            self.connection.commit()
+
+            return result
         except (Exception, psycopg2.DatabaseError) as error:
             print('\033[91m'+"\nSQL ERROR:\n"+str(error)+'\033[0m')
             sys.exit(-1)
@@ -130,22 +145,12 @@ class DB(object):
 class Importer(object):
 
     def __init__(self,datatype, db):
-        self.added = 0
-        self.modified = 0
-        self.deleted = 0
         self.db = db
-
         self.datatype=datatype
         self.insertion_commands=[]
 
     # Deal with one entity (node, way or relation)
     def add(self, o):
-        if o.deleted:
-            self.deleted += 1
-        elif o.version == 1:
-            self.added += 1
-        else:
-            self.modified += 1
 
         # We jsonify tags
         o.jsontags = self.jsonifyTags(o.tags)
@@ -160,16 +165,23 @@ class Importer(object):
             print('\033[91m'+"\nERROR: type"+str( self.datatype)+" not found, or not handled."+'\033[0m')
             sys.exit(-1)
 
-    def jsonifyTags(self,tags):
+        # Execute commands every 100000
+        if (len(self.insertion_commands)>100000):
+            self.executeCommands()
 
+    def executeCommands(self):
+        self.db.execute( self.insertion_commands )
+        self.insertion_commands = []
+
+    def executeSearchCommand(self,command):
+        return self.db.executeAndReturn(command)
+
+    def jsonifyTags(self,tags):
         jsontags={}
         for tag in tags:
             jsontags[tag.k.replace("'","")] = tag.v.replace("'","")
 
         return json.dumps(jsontags)
-
-    def executeImport(self):
-        self.db.execute(self.insertion_commands,self.added+self.modified+self.deleted)
 
     # Return a SQL command to insert a node
     def insertNodeSQL(self,o):
@@ -189,10 +201,18 @@ class Importer(object):
 
         queries = [query.format(o.id,o.deleted,o.visible,o.version,o.changeset,o.uid,o.timestamp,o.user.replace("'",""), o.jsontags)]
 
-        node_way_query = """ INSERT INTO ways_nodes VALUES ({0}, {1}, {2}, {3}) """
+        node_way_query = """ INSERT INTO ways_nodes VALUES ({0}, {1}, {2}, {3},{4},{5},{6}) """
         sequence_id=0
-        for node in o.nodes:
-            queries.append( node_way_query.format(o.id,o.version,node.ref,sequence_id) )
+
+        for mynode in o.nodes:
+
+            node_query = """SELECT * from nodes where id = {0} and created_at<='{1}' order by created_at desc limit 1;"""
+            current_node = self.executeSearchCommand(node_query.format(mynode.ref,o.timestamp))
+            if current_node == None:
+                node_query = """SELECT * from nodes where id = {0} order by created_at limit 1;"""
+                current_node = self.executeSearchCommand(node_query.format(mynode.ref,o.timestamp))
+
+            queries.append( node_way_query.format(o.id,o.version,mynode.ref,current_node[len(current_node)-8],sequence_id,current_node[len(current_node)-3],current_node[len(current_node)-2]) )
             sequence_id += 1
 
         return queries
@@ -213,28 +233,30 @@ class Importer(object):
 
         return queries
 
-    # Print stats of inserted items
-    def outstats(self):
-        print("%s added: %d" % (self.datatype, self.added))
-        print("%s modified: %d" % (self.datatype, self.modified))
-        print("%s deleted: %d" % (self.datatype, self.deleted))
-
-class FileStatsHandler(o.SimpleHandler):
+class FileHandler(o.SimpleHandler):
     def __init__(self, db):
-        super(FileStatsHandler, self).__init__()
+        super(FileHandler, self).__init__()
         self.nodes = Importer(NODE_TYPE,db)
         self.ways = Importer(WAY_TYPE,db)
         self.rels = Importer(RELATION_TYPE,db)
+        self.node_only=True
 
     def node(self, n):
-        self.nodes.add(n)
+        if(self.node_only):
+            self.nodes.add(n)
 
     def way(self, w):
-	    self.ways.add(w)
+        if(not self.node_only):
+	        self.ways.add(w)
 
     def relation(self, r):
-	    self.rels.add(r)
+        if(not self.node_only):
+	        self.rels.add(r)
 
+    def finish_remaining_commands(self):
+        self.nodes.executeCommands()
+        self.ways.executeCommands()
+        self.rels.executeCommands()
 
 if __name__ == '__main__':
     white = '\033[0m'
@@ -246,6 +268,7 @@ if __name__ == '__main__':
     print("======= "+blue+"OSM Data Importer "+white+"=======")
     print("=================================")
 
+    starting_time = time.time()
 
     if len(sys.argv) != 2:
         print("Usage: python osm-importer.py <osmfile>")
@@ -258,24 +281,15 @@ if __name__ == '__main__':
     db = DB()
     print("OK")
 
-    # Parse file
-    print("Parsing file... ",end='')
-    h = FileStatsHandler(db)
-    h.apply_file(sys.argv[1])
-    print("OK")
-
-    print("\nData found:")
-
-    h.nodes.outstats()
-    h.ways.outstats()
-    h.rels.outstats()
-
-    print("Starting nodes import...")
-    h.nodes.executeImport()
-    print("Starting ways import...")
-    h.ways.executeImport()
-    print("Starting relations import...")
-    h.rels.executeImport()
-    print("OK")
+    # Parse file and importing
+    print("Parsing and importing nodes... ",end='')
+    n = FileHandler(db)
+    n.apply_file(sys.argv[1])
+    n.node_only = False
+    n.finish_remaining_commands()
+    print("Parsing and importing the rest... ",end='')
+    n.apply_file(sys.argv[1])
+    n.finish_remaining_commands()
 
     print(green+"Import successful!"+white)
+    print(time.time()-starting_time)
