@@ -14,7 +14,7 @@ import psycopg2
 import pprint
 import json
 
-DB_NAME='osmlondon'
+DB_NAME='osmmonaco'
 DB_USER='Julien'
 DB_PWD=''
 DB_HOST='localhost'
@@ -23,6 +23,15 @@ DB_PORT='5433'
 NODE_TYPE="Nodes"
 WAY_TYPE="Ways"
 RELATION_TYPE="Relations"
+
+ONEE7 = 10000000
+
+BOTTM_LEFT_BOUNDARY=[43.724759*ONEE7,7.407896*ONEE7]
+TOP_RIGHT_BOUNDARY=[43.752079*ONEE7,7.441014*ONEE7]
+
+nodes_discarded = 0
+ways_discarded = 0
+relations_discarded = 0
 
 class DB(object):
     """encaspulate a database connection."""
@@ -156,11 +165,17 @@ class Importer(object):
         o.jsontags = self.jsonifyTags(o.tags)
 
         if self.datatype==NODE_TYPE:
-            self.insertion_commands.append(self.insertNodeSQL(o))
+            query = self.insertNodeSQL(o)
+            if query!= None:
+                self.insertion_commands.append(query)
         elif self.datatype==WAY_TYPE:
-            self.insertion_commands += self.insertWaySQL(o)
+            query = self.insertWaySQL(o)
+            if query!= None:
+                self.insertion_commands += query
         elif self.datatype==RELATION_TYPE:
-            self.insertion_commands += self.insertRelationSQL(o)
+            query = self.insertRelationSQL(o)
+            if query != None:
+                self.insertion_commands += query
         else:
             print('\033[91m'+"\nERROR: type"+str( self.datatype)+" not found, or not handled."+'\033[0m')
             sys.exit(-1)
@@ -186,8 +201,12 @@ class Importer(object):
     # Return a SQL command to insert a node
     def insertNodeSQL(self,o):
         if self.datatype!=NODE_TYPE:
-            return
+            return None
 
+        # Discard nodes not in zone
+        if (not checkBoundary(o.location.x,o.location.y)):
+            increaseDiscardedNodes()
+            return None
         query =  """INSERT INTO nodes VALUES ({0}, {1}, {2} , {3}, {4}, {5}, '{6}','{7}',
         {8},{9},'{10}');"""
 
@@ -197,15 +216,14 @@ class Importer(object):
     def insertWaySQL(self,o):
         if self.datatype!=WAY_TYPE:
             return
+
         query = """INSERT INTO ways VALUES ({0}, {1}, {2} , {3}, {4}, {5}, '{6}','{7}','{8}');"""
-
-        queries = [query.format(o.id,o.deleted,o.visible,o.version,o.changeset,o.uid,o.timestamp,o.user.replace("'",""), o.jsontags)]
-
         node_way_query = """ INSERT INTO ways_nodes VALUES ({0}, {1}, {2}, {3},{4},{5},{6}) """
         sequence_id=0
 
+        queries =[]
+
         for mynode in o.nodes:
-            # filter out way if no o.nodes dans la zoe
 
             node_query = """SELECT * from nodes where id = {0} and created_at<='{1}' order by created_at desc limit 1;"""
             current_node = self.executeSearchCommand(node_query.format(mynode.ref,o.timestamp))
@@ -213,8 +231,19 @@ class Importer(object):
                 node_query = """SELECT * from nodes where id = {0} order by created_at limit 1;"""
                 current_node = self.executeSearchCommand(node_query.format(mynode.ref,o.timestamp))
 
+            # filter out way if no o.nodes dans la zoe
+            if current_node == None or not checkBoundary(current_node[len(current_node)-3],current_node[len(current_node)-2]):
+                continue
+
             queries.append( node_way_query.format(o.id,o.version,mynode.ref,current_node[len(current_node)-8],sequence_id,current_node[len(current_node)-3],current_node[len(current_node)-2]) )
             sequence_id += 1
+
+        # If all nodes were out of our zone we don't add the way
+        if len(queries) == 0:
+            increaseDiscardedWays()
+            return None
+
+        queries.append(query.format(o.id,o.deleted,o.visible,o.version,o.changeset,o.uid,o.timestamp,o.user.replace("'",""), o.jsontags))
 
         return queries
 
@@ -223,14 +252,44 @@ class Importer(object):
         if self.datatype!=RELATION_TYPE:
             return
         query = """INSERT INTO relations VALUES ({0}, {1}, {2} , {3}, {4}, {5}, '{6}','{7}','{8}');"""
-
-        queries = [query.format(o.id,o.deleted,o.visible,o.version,o.changeset,o.uid,o.timestamp,o.user.replace("'",""), o.jsontags)]
-
         node_way_query = """ INSERT INTO relations_members VALUES ({0}, {1}, {2}, '{3}', '{4}', {5}) """
+
+        queries = []
+
         sequence_id=0
         for member in o.members:
+            # Now to make sure that the zone is in the database, we want to make
+            # sure that either the node or the way is already in db (as both nodes insertion
+            # and ways insertion make sure that entity is in zone)
+            if member.type.replace("'","") == 'n':
+                #  If member is a node
+                node_query = """SELECT * from nodes where id = {0} limit 1;"""
+                current_node = self.executeSearchCommand(node_query.format(member.ref))
+                if current_node == None:
+                    continue
+
+            elif (member.type.replace("'","")) == 'w':
+                # if member is a way
+                way_query = """SELECT * from ways where id = {0} limit 1;"""
+                current_way = self.executeSearchCommand(way_query.format(member.ref))
+                if current_way == None:
+                    continue
+
+            else:
+                # if member is a relation
+                relation_query = """SELECT * from relations where id = {0} limit 1;"""
+                current_relation = self.executeSearchCommand(relation_query.format(member.ref))
+                if current_relation == None:
+                    continue
+
             queries.append( node_way_query.format(o.id,o.version,member.ref,member.type.replace("'",""),member.role.replace("'",""),sequence_id) )
             sequence_id += 1
+
+        if len (queries) == 0:
+            increaseDiscardedRelations()
+            return None
+
+        queries.append(query.format(o.id,o.deleted,o.visible,o.version,o.changeset,o.uid,o.timestamp,o.user.replace("'",""), o.jsontags))
 
         return queries
 
@@ -240,24 +299,43 @@ class FileHandler(o.SimpleHandler):
         self.nodes = Importer(NODE_TYPE,db)
         self.ways = Importer(WAY_TYPE,db)
         self.rels = Importer(RELATION_TYPE,db)
-        self.node_only=True
+        # We start with node
+        self.current_type=NODE_TYPE
 
     def node(self, n):
-        if(self.node_only):
+        if(self.current_type == NODE_TYPE):
             self.nodes.add(n)
 
     def way(self, w):
-        if(not self.node_only):
+        if(self.current_type == WAY_TYPE):
 	        self.ways.add(w)
 
     def relation(self, r):
-        if(not self.node_only):
+        if self.current_type == RELATION_TYPE:
 	        self.rels.add(r)
 
     def finish_remaining_commands(self):
         self.nodes.executeCommands()
         self.ways.executeCommands()
         self.rels.executeCommands()
+
+def increaseDiscardedNodes():
+    global nodes_discarded
+    nodes_discarded+=1
+
+def increaseDiscardedWays():
+    global ways_discarded
+    ways_discarded+=1
+
+def increaseDiscardedRelations():
+    global relations_discarded
+    relations_discarded+=1
+
+# Make sure given point is in defined zone
+def checkBoundary(x,y):
+    return (x>=BOTTM_LEFT_BOUNDARY[0] and x<=TOP_RIGHT_BOUNDARY[0] and
+        y>=BOTTM_LEFT_BOUNDARY[1] and y <= TOP_RIGHT_BOUNDARY[1])
+
 
 if __name__ == '__main__':
     white = '\033[0m'
@@ -286,11 +364,21 @@ if __name__ == '__main__':
     print("Parsing and importing nodes... ",end='')
     n = FileHandler(db)
     n.apply_file(sys.argv[1])
-    n.node_only = False
     n.finish_remaining_commands()
-    print("Parsing and importing the rest... ",end='')
+
+    print("Parsing and importing ways... ",end='')
+    n.current_type = WAY_TYPE
+    n.apply_file(sys.argv[1])
+    n.finish_remaining_commands()
+
+    print("Parsing and importing relations... ",end='')
+    n.current_type = RELATION_TYPE
     n.apply_file(sys.argv[1])
     n.finish_remaining_commands()
 
     print(green+"Import successful!"+white)
     print(time.time()-starting_time)
+
+    print('nodes_discarded: '+str(nodes_discarded))
+    print('ways_discarded: '+str(ways_discarded))
+    print('relations_discarded: '+str(relations_discarded))
