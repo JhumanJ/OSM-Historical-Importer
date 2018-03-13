@@ -335,8 +335,8 @@ def increaseDiscardedRelations():
 
 # Make sure given point is in defined zone
 def checkBoundary(x,y):
-    return (x>=BOTTOM_LEFT_BOUNDARY[0] and x<=TOP_RIGHT_BOUNDARY[0] and
-        y>=BOTTOM_LEFT_BOUNDARY[1] and y <= TOP_RIGHT_BOUNDARY[1])
+    return (x>=BOTTOM_LEFT_BOUNDARY[1] and x<=TOP_RIGHT_BOUNDARY[1] and
+        y>=BOTTOM_LEFT_BOUNDARY[0] and y <= TOP_RIGHT_BOUNDARY[0])
 
 
 if __name__ == '__main__':
