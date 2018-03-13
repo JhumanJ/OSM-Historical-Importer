@@ -24,10 +24,8 @@ NODE_TYPE="Nodes"
 WAY_TYPE="Ways"
 RELATION_TYPE="Relations"
 
-ONEE7 = 10000000
-
-BOTTM_LEFT_BOUNDARY=[7.407896*ONEE7,43.724759*ONEE7]
-TOP_RIGHT_BOUNDARY=[7.441014*ONEE7,43.752079*ONEE7]
+BOTTOM_LEFT_BOUNDARY=[0,0]
+TOP_RIGHT_BOUNDARY=[0,0]
 
 nodes_discarded = 0
 ways_discarded = 0
@@ -337,8 +335,8 @@ def increaseDiscardedRelations():
 
 # Make sure given point is in defined zone
 def checkBoundary(x,y):
-    return (x>=BOTTM_LEFT_BOUNDARY[0] and x<=TOP_RIGHT_BOUNDARY[0] and
-        y>=BOTTM_LEFT_BOUNDARY[1] and y <= TOP_RIGHT_BOUNDARY[1])
+    return (x>=BOTTOM_LEFT_BOUNDARY[0] and x<=TOP_RIGHT_BOUNDARY[0] and
+        y>=BOTTOM_LEFT_BOUNDARY[1] and y <= TOP_RIGHT_BOUNDARY[1])
 
 
 if __name__ == '__main__':
@@ -363,6 +361,18 @@ if __name__ == '__main__':
     print("\nConnecting to db... ")
     db = DB()
     print("OK")
+
+    print("Setting up the zone limit...")
+    if sys.version_info[0] < 3:
+        BOTTOM_LEFT_BOUNDARY[0] = int(raw_input("Please enter bottom left boundary x:"))
+        BOTTOM_LEFT_BOUNDARY[1] = int(raw_input("Please enter bottom left boundary y:"))
+        TOP_RIGHT_BOUNDARY[0] = int(raw_input("Please enter top right boundary x:"))
+        TOP_RIGHT_BOUNDARY[1] = int(raw_input("Please enter top right boundary y:"))
+    else:
+        BOTTOM_LEFT_BOUNDARY[0] = int(input("Please enter bottom left boundary x:"))
+        BOTTOM_LEFT_BOUNDARY[1] = int(input("Please enter bottom left boundary y:"))
+        TOP_RIGHT_BOUNDARY[0] = int(input("Please enter top right boundary x:"))
+        TOP_RIGHT_BOUNDARY[1] = int(input("Please enter top right boundary y:"))
 
     # Parse file and importing
     print("Parsing and importing nodes... ")
