@@ -11,7 +11,7 @@ import sys
 from datetime import date
 import time
 import psycopg2
-import pprint
+# import pprint
 import json
 
 DB_NAME='osmmonaco'
@@ -26,8 +26,8 @@ RELATION_TYPE="Relations"
 
 ONEE7 = 10000000
 
-BOTTM_LEFT_BOUNDARY=[43.724759*ONEE7,7.407896*ONEE7]
-TOP_RIGHT_BOUNDARY=[43.752079*ONEE7,7.441014*ONEE7]
+BOTTM_LEFT_BOUNDARY=[7.407896*ONEE7,43.724759*ONEE7]
+TOP_RIGHT_BOUNDARY=[7.441014*ONEE7,43.752079*ONEE7]
 
 nodes_discarded = 0
 ways_discarded = 0
@@ -200,6 +200,7 @@ class Importer(object):
 
     # Return a SQL command to insert a node
     def insertNodeSQL(self,o):
+
         if self.datatype!=NODE_TYPE:
             return None
 
@@ -214,6 +215,7 @@ class Importer(object):
 
     # Return am array of SQL commands to insert a way
     def insertWaySQL(self,o):
+
         if self.datatype!=WAY_TYPE:
             return
 
@@ -232,7 +234,7 @@ class Importer(object):
                 current_node = self.executeSearchCommand(node_query.format(mynode.ref,o.timestamp))
 
             # filter out way if no o.nodes dans la zoe
-            if current_node == None or not checkBoundary(current_node[len(current_node)-3],current_node[len(current_node)-2]):
+            if current_node == None:
                 continue
 
             queries.append( node_way_query.format(o.id,o.version,mynode.ref,current_node[len(current_node)-8],sequence_id,current_node[len(current_node)-3],current_node[len(current_node)-2]) )
@@ -243,12 +245,13 @@ class Importer(object):
             increaseDiscardedWays()
             return None
 
-        queries.append(query.format(o.id,o.deleted,o.visible,o.version,o.changeset,o.uid,o.timestamp,o.user.replace("'",""), o.jsontags))
+        queries.insert(0,query.format(o.id,o.deleted,o.visible,o.version,o.changeset,o.uid,o.timestamp,o.user.replace("'",""), o.jsontags))
 
         return queries
 
     # Return am array of SQL commands to insert a relation
     def insertRelationSQL(self,o):
+
         if self.datatype!=RELATION_TYPE:
             return
         query = """INSERT INTO relations VALUES ({0}, {1}, {2} , {3}, {4}, {5}, '{6}','{7}','{8}');"""
@@ -289,7 +292,7 @@ class Importer(object):
             increaseDiscardedRelations()
             return None
 
-        queries.append(query.format(o.id,o.deleted,o.visible,o.version,o.changeset,o.uid,o.timestamp,o.user.replace("'",""), o.jsontags))
+        queries.insert(0,query.format(o.id,o.deleted,o.visible,o.version,o.changeset,o.uid,o.timestamp,o.user.replace("'",""), o.jsontags))
 
         return queries
 
@@ -327,6 +330,7 @@ def increaseDiscardedWays():
     global ways_discarded
     ways_discarded+=1
 
+
 def increaseDiscardedRelations():
     global relations_discarded
     relations_discarded+=1
@@ -356,22 +360,22 @@ if __name__ == '__main__':
     print(orange+"\nWarning: All single quote ' are deleted in tags and users'name"+white)
 
     # Create connection with db and file importer
-    print("\nConnecting to db... ",end='')
+    print("\nConnecting to db... ")
     db = DB()
     print("OK")
 
     # Parse file and importing
-    print("Parsing and importing nodes... ",end='')
+    print("Parsing and importing nodes... ")
     n = FileHandler(db)
     n.apply_file(sys.argv[1])
     n.finish_remaining_commands()
 
-    print("Parsing and importing ways... ",end='')
+    print("Parsing and importing ways... ")
     n.current_type = WAY_TYPE
     n.apply_file(sys.argv[1])
     n.finish_remaining_commands()
 
-    print("Parsing and importing relations... ",end='')
+    print("Parsing and importing relations... ")
     n.current_type = RELATION_TYPE
     n.apply_file(sys.argv[1])
     n.finish_remaining_commands()

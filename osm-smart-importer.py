@@ -14,7 +14,7 @@ import psycopg2
 import pprint
 import json
 
-DB_NAME='osmlondon'
+DB_NAME='osmmonaco2'
 DB_USER='Julien'
 DB_PWD=''
 DB_HOST='localhost'
