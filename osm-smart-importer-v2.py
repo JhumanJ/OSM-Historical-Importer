@@ -364,11 +364,13 @@ if __name__ == '__main__':
 
     print("Setting up the zone limit...")
     if sys.version_info[0] < 3:
+        DB_NAME = raw_input("Please enter bottom left boundary x:")
         BOTTOM_LEFT_BOUNDARY[0] = int(raw_input("Please enter bottom left boundary x:"))
         BOTTOM_LEFT_BOUNDARY[1] = int(raw_input("Please enter bottom left boundary y:"))
         TOP_RIGHT_BOUNDARY[0] = int(raw_input("Please enter top right boundary x:"))
         TOP_RIGHT_BOUNDARY[1] = int(raw_input("Please enter top right boundary y:"))
     else:
+        DB_NAME = input("Please enter bottom left boundary x:")
         BOTTOM_LEFT_BOUNDARY[0] = int(input("Please enter bottom left boundary x:"))
         BOTTOM_LEFT_BOUNDARY[1] = int(input("Please enter bottom left boundary y:"))
         TOP_RIGHT_BOUNDARY[0] = int(input("Please enter top right boundary x:"))
