@@ -58,7 +58,7 @@ class DB(object):
             user_name VARCHAR(255) NOT NULL,
             latitude INT NOT NULL,
             longitude INT NOT NULL,
-            tags jsonb NOT NULL,
+            tags json NOT NULL,
             PRIMARY KEY (id, version)
         )
         """,
@@ -71,7 +71,7 @@ class DB(object):
             uniqueid BIGINT NOT NULL,
             created_at TIMESTAMP NOT NULL,
             user_name VARCHAR(255) NOT NULL,
-            tags jsonb NOT NULL,
+            tags json NOT NULL,
             PRIMARY KEY (id, version)
         )
         """,
@@ -96,7 +96,7 @@ class DB(object):
             uniqueid BIGINT NOT NULL,
             created_at TIMESTAMP NOT NULL,
             user_name VARCHAR(255) NOT NULL,
-            tags jsonb NOT NULL,
+            tags json NOT NULL,
             PRIMARY KEY (id, version)
         )
         """,
@@ -205,6 +205,7 @@ class Importer(object):
         # Discard nodes not in zone
         if (not checkBoundary(o.location.x,o.location.y)):
             increaseDiscardedNodes()
+            print('Discard ('+str(o.location.x)+','+str(o.location.y)+')')
             return None
         query =  """INSERT INTO nodes VALUES ({0}, {1}, {2} , {3}, {4}, {5}, '{6}','{7}',
         {8},{9},'{10}');"""
@@ -327,7 +328,6 @@ def increaseDiscardedNodes():
 def increaseDiscardedWays():
     global ways_discarded
     ways_discarded+=1
-
 
 def increaseDiscardedRelations():
     global relations_discarded
