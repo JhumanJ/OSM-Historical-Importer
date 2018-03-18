@@ -1,0 +1,2860 @@
+
+
+------------------------------
+Parsing and importing nodes...
+Time elapsed: 0.0725700855255127
+Discarding node: 74151339 437232481
+Nodes added: 821
+Nodes discarded: 179
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 1754
+Nodes discarded: 245
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 2087
+Nodes discarded: 912
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Discarding node: 2147483647 2147483647
+Nodes added: 3029
+Nodes discarded: 971
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 3880
+Nodes discarded: 1119
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 4074
+Nodes discarded: 1925
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Discarding node: 74949464 437699102
+Nodes added: 4163
+Nodes discarded: 2837
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Discarding node: 73318685 436968226
+Nodes added: 4496
+Nodes discarded: 3504
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Discarding node: 74829816 437585853
+Nodes added: 4534
+Nodes discarded: 4466
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Discarding node: 73841211 437229323
+Nodes added: 4598
+Nodes discarded: 5402
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 5080
+Nodes discarded: 5919
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 5873
+Nodes discarded: 6126
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Discarding node: 2147483647 2147483647
+Nodes added: 6732
+Nodes discarded: 6268
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Discarding node: 74152839 437562001
+Nodes added: 7287
+Nodes discarded: 6713
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 8115
+Nodes discarded: 6884
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 8985
+Nodes discarded: 7014
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 9841
+Nodes discarded: 7158
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 10652
+Nodes discarded: 7347
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 11545
+Nodes discarded: 7454
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 12499
+Nodes discarded: 7500
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 13466
+Nodes discarded: 7533
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 14433
+Nodes discarded: 7566
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 15414
+Nodes discarded: 7585
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 16381
+Nodes discarded: 7618
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 17320
+Nodes discarded: 7679
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 18283
+Nodes discarded: 7716
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 19169
+Nodes discarded: 7830
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 20016
+Nodes discarded: 7983
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Discarding node: 2147483647 2147483647
+Nodes added: 20952
+Nodes discarded: 8048
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 21841
+Nodes discarded: 8158
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 22756
+Nodes discarded: 8243
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 23726
+Nodes discarded: 8273
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 24600
+Nodes discarded: 8399
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 25485
+Nodes discarded: 8514
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 26404
+Nodes discarded: 8595
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 27202
+Nodes discarded: 8797
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 28071
+Nodes discarded: 8928
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 28971
+Nodes discarded: 9028
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Discarding node: 2147483647 2147483647
+Nodes added: 29903
+Nodes discarded: 9097
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 30470
+Nodes discarded: 9529
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 31368
+Nodes discarded: 9631
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 32212
+Nodes discarded: 9787
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Discarding node: 2147483647 2147483647
+Nodes added: 33098
+Nodes discarded: 9902
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 33950
+Nodes discarded: 10049
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 34686
+Nodes discarded: 10313
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+Adding a node
+Nodes added: 35576
+Nodes discarded: 10423
+Ways added: 0
+Ways discarded: 0
+Relations added: 0
+Relations discarded: 0
+
+
+------------------------------
+Parsing and importing ways...
+Time elapsed: 8.251358985900879
+Discarding a node from a way, node_id: 25304545
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 76
+Ways discarded: 12
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 245981532
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 77
+Ways discarded: 12
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 245981455
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 78
+Ways discarded: 12
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 245981454
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 79
+Ways discarded: 12
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 267898164
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 640
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 21914841
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 641
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 21914809
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 643
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 272637895
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 644
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 21914809
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 645
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1684697744
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 646
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 21914809
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 647
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1736930370
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 648
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1726583859
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 649
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 272637895
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 650
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 272637923
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 651
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1736929703
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 652
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 272637923
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 653
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1736929703
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 654
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 25239175
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 655
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 25240091
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 656
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 21914573
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 657
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 21914573
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 658
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 25240093
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 659
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 25239173
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 660
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Adding a way, id: 4230007
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 660
+Ways discarded: 74
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 33513623
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1157
+Ways discarded: 137
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 25184683
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1158
+Ways discarded: 138
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 25184683
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1160
+Ways discarded: 139
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 25184669
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1161
+Ways discarded: 139
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 357301112
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1168
+Ways discarded: 139
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 25189856
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1169
+Ways discarded: 139
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 25189837
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1170
+Ways discarded: 139
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 768945504
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1171
+Ways discarded: 139
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 357299793
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1172
+Ways discarded: 139
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 25179990
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1173
+Ways discarded: 139
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1079751571
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1174
+Ways discarded: 139
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 25181233
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1175
+Ways discarded: 139
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 25181171
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1176
+Ways discarded: 139
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1279818290
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1177
+Ways discarded: 139
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 25178405
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1178
+Ways discarded: 139
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 768945525
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1179
+Ways discarded: 139
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 25190017
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1390
+Ways discarded: 168
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 25189897
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1391
+Ways discarded: 168
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 25197679
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1494
+Ways discarded: 184
+Relations added: 0
+Relations discarded: 0
+
+Discarding a node from a way, node_id: 25394079
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1494
+Ways discarded: 184
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 25239169
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1495
+Ways discarded: 184
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 25201024
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1495
+Ways discarded: 184
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 25242954
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1496
+Ways discarded: 184
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 25201018
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1496
+Ways discarded: 184
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322491
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1497
+Ways discarded: 185
+Relations added: 0
+Relations discarded: 0
+
+Discarding a node from a way, node_id: 443322934
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1498
+Ways discarded: 185
+Relations added: 0
+Relations discarded: 0
+
+Discarding a node from a way, node_id: 443322869
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1498
+Ways discarded: 186
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 443324822
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1498
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 443324824
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1499
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 443324826
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1500
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 443324828
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1501
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 443324888
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1502
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 443324890
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1503
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 443324884
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1504
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 443324886
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1505
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 443324840
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1506
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 443324905
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1507
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 443324838
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1508
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 443324840
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1509
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 443324886
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1510
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 443324884
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1511
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 443324890
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1512
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 443324888
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1513
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 443324828
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1514
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443325306
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1515
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443325306
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1516
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322648
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1517
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322744
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1518
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322745
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1519
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322743
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1520
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322740
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1521
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322738
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1522
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322739
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1523
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322688
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1524
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322687
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1525
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322690
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1526
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322689
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1527
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322957
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1528
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322954
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1529
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322955
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1530
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322960
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1531
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322902
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1532
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322905
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1533
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322904
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1534
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322956
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1535
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322949
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1536
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322946
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1537
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322947
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1538
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322952
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1539
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322961
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1540
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322959
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1541
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 3423480299
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1542
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322948
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1543
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322854
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1544
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322855
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1545
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322853
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1546
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 443322800
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1547
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Adding a way, id: 37794471
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 1547
+Ways discarded: 187
+Relations added: 0
+Relations discarded: 0
+
+Discarding a node from a way, node_id: 25345344
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2297
+Ways discarded: 267
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 25345327
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2298
+Ways discarded: 267
+Relations added: 0
+Relations discarded: 0
+
+Discarding a node from a way, node_id: 2626913204
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2299
+Ways discarded: 267
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 25345336
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2300
+Ways discarded: 267
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1480601758
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2301
+Ways discarded: 267
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 25345325
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2302
+Ways discarded: 267
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 25345320
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2303
+Ways discarded: 267
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1074584760
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2421
+Ways discarded: 272
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1870658497
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2422
+Ways discarded: 272
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1074584766
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2423
+Ways discarded: 272
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1074585031
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2424
+Ways discarded: 272
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1074584672
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2425
+Ways discarded: 272
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 2750638824
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2426
+Ways discarded: 272
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 2750638823
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2427
+Ways discarded: 272
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 2750638821
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2428
+Ways discarded: 272
+Relations added: 0
+Relations discarded: 0
+
+Discarding a node from a way, node_id: 25206134
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2429
+Ways discarded: 272
+Relations added: 0
+Relations discarded: 0
+
+Discarding a node from a way, node_id: 250260454
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2430
+Ways discarded: 272
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 25206087
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2431
+Ways discarded: 272
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1787476393
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2432
+Ways discarded: 272
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1074584727
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2433
+Ways discarded: 272
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 250260453
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2436
+Ways discarded: 272
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1079045343
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2440
+Ways discarded: 273
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1079045432
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2441
+Ways discarded: 273
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 25177422
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2447
+Ways discarded: 273
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 25177422
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2448
+Ways discarded: 273
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1079045379
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2449
+Ways discarded: 273
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1079045465
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2450
+Ways discarded: 273
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1690213031
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2451
+Ways discarded: 273
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1079045376
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2452
+Ways discarded: 273
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1079045443
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2453
+Ways discarded: 273
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1079045454
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2454
+Ways discarded: 274
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1079045359
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2455
+Ways discarded: 274
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1079045376
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2456
+Ways discarded: 274
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1079045420
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2457
+Ways discarded: 274
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1079045359
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2458
+Ways discarded: 274
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1079045359
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2459
+Ways discarded: 274
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 4937556526
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2460
+Ways discarded: 274
+Relations added: 0
+Relations discarded: 0
+
+Adding a way, id: 93091314
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 2460
+Ways discarded: 274
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1096587573
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3391
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1096588808
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3410
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1096587968
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3411
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1096595852
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3412
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1096590186
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3416
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1096586387
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3417
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1096587867
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3418
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1096587867
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3419
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1096595072
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3420
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1096590186
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3421
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1096588981
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3422
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1835348082
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3423
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1096587867
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3424
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1096594530
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3425
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1096588839
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3426
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1096593566
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3427
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1096589704
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3428
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1096593510
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3429
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1096589289
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3430
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1096587287
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3431
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1096586590
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3432
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1096593801
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3433
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1096594021
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3434
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1096597842
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3435
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1096597823
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3436
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1096587196
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3437
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1096597195
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3438
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1096593237
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3439
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Adding a way, id: 94400182
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 3439
+Ways discarded: 295
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1685062002
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4320
+Ways discarded: 345
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1685061959
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4321
+Ways discarded: 345
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1685061948
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4322
+Ways discarded: 345
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1685061943
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4323
+Ways discarded: 345
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1685061999
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4344
+Ways discarded: 345
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1685132508
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4345
+Ways discarded: 345
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1685061911
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4347
+Ways discarded: 345
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 245981426
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4348
+Ways discarded: 345
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 245981427
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4349
+Ways discarded: 345
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 245981428
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4350
+Ways discarded: 345
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1685108365
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4368
+Ways discarded: 349
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1685108369
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4369
+Ways discarded: 349
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1685108348
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4370
+Ways discarded: 349
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1685108077
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4371
+Ways discarded: 349
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1685108073
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4372
+Ways discarded: 349
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1685108077
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4373
+Ways discarded: 349
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1685108174
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4374
+Ways discarded: 349
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1685108135
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4375
+Ways discarded: 350
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1685108135
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4376
+Ways discarded: 350
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1685108236
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4378
+Ways discarded: 351
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1685108264
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4379
+Ways discarded: 351
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1685108231
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4380
+Ways discarded: 351
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1685108065
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4381
+Ways discarded: 352
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1685108051
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4382
+Ways discarded: 352
+Relations added: 0
+Relations discarded: 0
+
+Adding a way, id: 156248742
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 4382
+Ways discarded: 352
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1737114879
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5129
+Ways discarded: 384
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1737114874
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5130
+Ways discarded: 384
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1738395735
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5231
+Ways discarded: 386
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1737326368
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5296
+Ways discarded: 389
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1737147156
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5300
+Ways discarded: 390
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1737114281
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5309
+Ways discarded: 392
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1737114270
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5310
+Ways discarded: 392
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 519325360
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5314
+Ways discarded: 392
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1738382575
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5315
+Ways discarded: 392
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1738382564
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5317
+Ways discarded: 393
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1738390451
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5321
+Ways discarded: 394
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1738399766
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5325
+Ways discarded: 395
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1738399817
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5328
+Ways discarded: 395
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1738399806
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5329
+Ways discarded: 395
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 4313778497
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5331
+Ways discarded: 395
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 4313778497
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5332
+Ways discarded: 395
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1738415124
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5333
+Ways discarded: 395
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1738415138
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5334
+Ways discarded: 395
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1738415145
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5335
+Ways discarded: 395
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 384587205
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5336
+Ways discarded: 395
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 384593962
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5337
+Ways discarded: 395
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1738415128
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5338
+Ways discarded: 395
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1738415124
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5339
+Ways discarded: 395
+Relations added: 0
+Relations discarded: 0
+
+Adding a way, id: 161887494
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5339
+Ways discarded: 395
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 25184874
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 5753
+Ways discarded: 419
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1080526054
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6124
+Ways discarded: 452
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 25185244
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6125
+Ways discarded: 452
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 25239346
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6247
+Ways discarded: 455
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1759785810
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6248
+Ways discarded: 455
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 268125583
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6249
+Ways discarded: 455
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 268125581
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6250
+Ways discarded: 455
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 268125579
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6251
+Ways discarded: 455
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 3414759851
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6252
+Ways discarded: 455
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 268123962
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6253
+Ways discarded: 455
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1868723934
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6254
+Ways discarded: 455
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1868723953
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6255
+Ways discarded: 455
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1868723953
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6256
+Ways discarded: 455
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1868723916
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6257
+Ways discarded: 455
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 25185840
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6258
+Ways discarded: 455
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1868723925
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6259
+Ways discarded: 456
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1868723910
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6260
+Ways discarded: 456
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1868723918
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6261
+Ways discarded: 456
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1868723939
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6262
+Ways discarded: 456
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1868723910
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6263
+Ways discarded: 456
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1868723922
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6264
+Ways discarded: 456
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1868723911
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6265
+Ways discarded: 456
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 2750610474
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6266
+Ways discarded: 456
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 21918450
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6267
+Ways discarded: 456
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1079751432
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6268
+Ways discarded: 456
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 1685146302
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6269
+Ways discarded: 456
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1685146302
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6270
+Ways discarded: 456
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1868736606
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6271
+Ways discarded: 456
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1869347157
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6272
+Ways discarded: 456
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1868736612
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6273
+Ways discarded: 456
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1868736610
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6274
+Ways discarded: 457
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1868736560
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6275
+Ways discarded: 457
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1868736674
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6276
+Ways discarded: 457
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1868736697
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6277
+Ways discarded: 457
+Relations added: 0
+Relations discarded: 0
+
+Adding a way, id: 176334441
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 6277
+Ways discarded: 457
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 2225788695
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7162
+Ways discarded: 519
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 2225788702
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7163
+Ways discarded: 519
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 2225788707
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7164
+Ways discarded: 519
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 2225788711
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7165
+Ways discarded: 519
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 2225788722
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7166
+Ways discarded: 519
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1737389132
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7169
+Ways discarded: 519
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 25191689
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7170
+Ways discarded: 519
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 25191695
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7171
+Ways discarded: 519
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1074585015
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7172
+Ways discarded: 519
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1074585015
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7173
+Ways discarded: 519
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 25191689
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7174
+Ways discarded: 519
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 1074585015
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7175
+Ways discarded: 519
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 2241375223
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7176
+Ways discarded: 519
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 2225788680
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7184
+Ways discarded: 520
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 2225788680
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7185
+Ways discarded: 520
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 4937755895
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7186
+Ways discarded: 520
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 25183952
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7192
+Ways discarded: 520
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1629846913
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7193
+Ways discarded: 521
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 2303763222
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7194
+Ways discarded: 522
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 2303763222
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7195
+Ways discarded: 522
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 2303763208
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7196
+Ways discarded: 522
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 2303763230
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7198
+Ways discarded: 522
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 2303763226
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7199
+Ways discarded: 522
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 2303763195
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7200
+Ways discarded: 522
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 2303769417
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7201
+Ways discarded: 522
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 2303769448
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7202
+Ways discarded: 522
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 2303769421
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7203
+Ways discarded: 522
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 2303769447
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7204
+Ways discarded: 522
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 2303769424
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7205
+Ways discarded: 522
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 2303769441
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7206
+Ways discarded: 522
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 2303769445
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7207
+Ways discarded: 522
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 624445710
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7208
+Ways discarded: 522
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 2303809393
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7209
+Ways discarded: 522
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1096596094
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7210
+Ways discarded: 522
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 4937466460
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7211
+Ways discarded: 522
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 2303817385
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7212
+Ways discarded: 522
+Relations added: 0
+Relations discarded: 0
+
+Adding a way, id: 221352759
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 7212
+Ways discarded: 522
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 4452216570
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 8063
+Ways discarded: 613
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 4329343793
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 8100
+Ways discarded: 616
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 4329343792
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 8101
+Ways discarded: 616
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 4329343791
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 8102
+Ways discarded: 616
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 4329343790
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 8103
+Ways discarded: 616
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 4329343789
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 8104
+Ways discarded: 616
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 4329343088
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 8105
+Ways discarded: 616
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 4329343794
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 8106
+Ways discarded: 616
+Relations added: 0
+Relations discarded: 0
+
+Testing node for a way, node_id: 4463741748
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 8107
+Ways discarded: 616
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 4472516567
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 8109
+Ways discarded: 616
+Relations added: 0
+Relations discarded: 0
+
+Adding node to a way, node_id: 2264703505
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 8110
+Ways discarded: 616
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 4473787427
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 8111
+Ways discarded: 616
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 4473805702
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 8113
+Ways discarded: 616
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 4473805697
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 8114
+Ways discarded: 616
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 4547239706
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 8115
+Ways discarded: 616
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 1868334398
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 8116
+Ways discarded: 616
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 4552638028
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 8117
+Ways discarded: 616
+Relations added: 0
+Relations discarded: 0
+
+Checking node for way: 4547239728
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 8118
+Ways discarded: 616
+Relations added: 0
+Relations discarded: 0
+
+Adding a way, id: 458772112
+Nodes added: 35827
+Nodes discarded: 10438
+Ways added: 8118
+Ways discarded: 616
+Relations added: 0
+Relations discarded: 0
+
+
+------------------------------
+Import successful!Time elapsed: 374.08430099487305nodes_discarded: 10438ways_discarded: 626relations_discarded: 0

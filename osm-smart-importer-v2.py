@@ -8,11 +8,16 @@ Simply modify the DB variables, and run using:
 """
 import osmium as o
 import sys
+import os
 from datetime import date
 import time
 import psycopg2
 # import pprint
 import json
+
+from queue import Queue
+from threading import Thread, Lock
+from multiprocessing import Process,Manager
 
 DB_NAME='osmmonaco'
 DB_USER='Julien'
@@ -30,6 +35,13 @@ TOP_RIGHT_BOUNDARY=[0,0]
 nodes_discarded = 0
 ways_discarded = 0
 relations_discarded = 0
+
+nodes_added = 0
+ways_added = 0
+relations_added = 0
+
+actionsLogged = 0
+lastActionLogged = 0
 
 class DB(object):
     """encaspulate a database connection."""
@@ -148,6 +160,161 @@ class DB(object):
             print('\033[91m'+"\nSQL ERROR:\n"+str(error)+'\033[0m')
             sys.exit(-1)
 
+class WayNodeChecker(Thread):
+    # Appending item to list is a thread-safe operation
+   def __init__(self, queue, queries, seq_id,db,way):
+       Thread.__init__(self)
+       self.queue = queue
+       self.queries = queries
+       self.seq_id = seq_id
+       self.db = db
+       self.way = way
+
+   def run(self):
+       node_way_query = """ INSERT INTO ways_nodes VALUES ({0}, {1}, {2}, {3},{4},{5},{6}) """
+
+       while True:
+           # Get the work from the queue
+           item = self.queue.get()
+           logAction("Testing node for a way, node_id: "+str(item.ref))
+
+           node_query = """SELECT * from nodes where id = {0} and created_at<='{1}' order by created_at desc limit 1;"""
+           current_node = self.executeSearchCommand(node_query.format(item.ref,self.way.timestamp))
+           if current_node == None:
+               node_query = """SELECT * from nodes where id = {0} order by created_at limit 1;"""
+               current_node = self.executeSearchCommand(node_query.format(item.ref,self.way.timestamp))
+
+           # filter out way if no o.nodes dans la zoe
+           if current_node == None:
+               logAction("Discarding a node from a way, node_id: "+str(item.ref))
+               self.queue.task_done()
+               continue
+
+           logAction("Adding node to a way, node_id: "+str(item.ref))
+           self.queries.append( node_way_query.format(self.way.id,self.way.version,item.ref,current_node[len(current_node)-8],self.seq_id.getValue(),current_node[len(current_node)-3],current_node[len(current_node)-2]) )
+           self.seq_id.increment()
+           self.queue.task_done()
+
+   def executeSearchCommand(self,command):
+         return self.db.executeAndReturn(command)
+
+class RelationMemberChecker(Thread):
+    # Appending item to list is a thread-safe operation
+   def __init__(self, queue, queries, seq_id, db, relation):
+       Thread.__init__(self)
+       self.queue = queue
+       self.queries = queries
+       self.seq_id = seq_id
+       self.db = db
+       self.relation = relation
+
+   def executeSearchCommand(self,command):
+       return self.db.executeAndReturn(command)
+
+   def run(self):
+       node_way_query = """ INSERT INTO relations_members VALUES ({0}, {1}, {2}, '{3}', '{4}', {5}) """
+       while True:
+           # Get the work from the queue
+           item = self.queue.get()
+
+           # Now to make sure that the zone is in the database, we want to make
+           # sure that either the node or the way is already in db (as both nodes insertion
+           # and ways insertion make sure that entity is in zone)
+           if item.type.replace("'","") == 'n':
+               #  If item is a node
+               node_query = """SELECT * from nodes where id = {0} limit 1;"""
+               current_node = self.executeSearchCommand(node_query.format(item.ref))
+               if current_node == None:
+                   logAction("Discarding a node from a relation, id: "+str(item.ref))
+                   self.queue.task_done()
+                   continue
+
+           elif (item.type.replace("'","")) == 'w':
+               # if item is a way
+               way_query = """SELECT * from ways where id = {0} limit 1;"""
+               current_way = self.executeSearchCommand(way_query.format(item.ref))
+               if current_way == None:
+                   logAction("Discarding a way from a relation, id: "+str(item.ref))
+                   self.queue.task_done()
+                   continue
+
+           else:
+               # if item is a relation
+               relation_query = """SELECT * from relations where id = {0} limit 1;"""
+               current_relation = self.executeSearchCommand(relation_query.format(item.ref))
+               if current_relation == None:
+                   logAction("Discarding a relation from a relation, id: "+str(item.ref))
+                   self.queue.task_done()
+                   continue
+
+           logAction("Adding an item of type"+ item.type.replace("'","") +" to a relation, id: "+str(item.ref))
+           self.queries.append( node_way_query.format(self.relation.id,self.relation.version,item.ref,item.type.replace("'",""),item.role.replace("'",""),self.seq_id.getValue()) )
+           self.seq_id.increment()
+           self.queue.task_done()
+
+
+# ======= Counter for seq id ==========
+class Counter(object):
+    def __init__(self, start=0):
+        self.lock = Lock()
+        self.value = start
+
+    def increment(self):
+        with self.lock:
+            self.value = self.value + 1
+
+    def getValue(self):
+        with self.lock:
+            return self.value
+
+#  ============ Process starting threads =========
+
+def processDealWithWay(way,db,queries):
+    # Prepare for concurrency
+    queue = Queue()
+    sequence_id = Counter()
+
+    tempQueries = []
+
+    # Start 20 workers
+    for x in range(25):
+        worker = WayNodeChecker(queue,tempQueries,sequence_id,db, way)
+        # Setting daemon to True will let the main thread exit even though the workers are blocking
+        worker.daemon = True
+        worker.start()
+
+    for mynode in way.nodes:
+        logAction("Checking node for way: "+str(mynode.ref))
+        queue.put(mynode)
+
+    # Wait for workers to be done with analyzing all items in queue
+    queue.join()
+    queries += tempQueries
+
+
+def processDealWithRelation(relation,db,queries):
+    # Prepare for concurrency
+    queue = Queue()
+    sequence_id = Counter()
+
+    tempQueries = []
+
+    # Start 20 workers
+    for x in range(25):
+        worker = RelationMemberChecker(queue,tempQueries,sequence_id,db, relation)
+        # Setting daemon to True will let the main thread exit even though the workers are blocking
+        worker.daemon = True
+        worker.start()
+
+    for member in relation.members:
+        logAction("Checking member for relation: "+str(member.ref))
+        queue.put(member)
+
+    # Wait for workers to be done with analyzing all items in queue
+    queue.join()
+    queries += tempQueries
+
+# ============= Importer class ==============
 
 class Importer(object):
 
@@ -199,100 +366,74 @@ class Importer(object):
     # Return a SQL command to insert a node
     def insertNodeSQL(self,o):
 
+        global nodes_added, nodes_discarded
+
         if self.datatype!=NODE_TYPE:
             return None
 
         # Discard nodes not in zone
         if (not checkBoundary(o.location.x,o.location.y)):
-            increaseDiscardedNodes()
-            print('Discard ('+str(o.location.x)+','+str(o.location.y)+')')
+            nodes_discarded+=1
+            logAction("Discarding node: "+str(o.location.x)+" "+str(o.location.y))
             return None
         query =  """INSERT INTO nodes VALUES ({0}, {1}, {2} , {3}, {4}, {5}, '{6}','{7}',
         {8},{9},'{10}');"""
 
+        logAction("Adding a node")
+        nodes_added +=1
         return query.format(o.id,o.deleted,o.visible,o.version,o.changeset,o.uid,o.timestamp,o.user.replace("'",""),o.location.x, o.location.y, o.jsontags)
 
     # Return am array of SQL commands to insert a way
     def insertWaySQL(self,o):
 
+        global ways_added, ways_discarded
+
         if self.datatype!=WAY_TYPE:
             return
-
         query = """INSERT INTO ways VALUES ({0}, {1}, {2} , {3}, {4}, {5}, '{6}','{7}','{8}');"""
-        node_way_query = """ INSERT INTO ways_nodes VALUES ({0}, {1}, {2}, {3},{4},{5},{6}) """
-        sequence_id=0
 
-        queries =[]
-
-        for mynode in o.nodes:
-
-            node_query = """SELECT * from nodes where id = {0} and created_at<='{1}' order by created_at desc limit 1;"""
-            current_node = self.executeSearchCommand(node_query.format(mynode.ref,o.timestamp))
-            if current_node == None:
-                node_query = """SELECT * from nodes where id = {0} order by created_at limit 1;"""
-                current_node = self.executeSearchCommand(node_query.format(mynode.ref,o.timestamp))
-
-            # filter out way if no o.nodes dans la zoe
-            if current_node == None:
-                continue
-
-            queries.append( node_way_query.format(o.id,o.version,mynode.ref,current_node[len(current_node)-8],sequence_id,current_node[len(current_node)-3],current_node[len(current_node)-2]) )
-            sequence_id += 1
+        queries = Manager().list()
+        p = Process(target=processDealWithWay, args=(o,db,queries))
+        p.start()
+        p.join()
 
         # If all nodes were out of our zone we don't add the way
         if len(queries) == 0:
-            increaseDiscardedWays()
+            logAction("Discarding a way, id: "+str(o.id))
+            ways_discarded +=1
             return None
 
+        logAction("Adding a way, id: "+str(o.id))
         queries.insert(0,query.format(o.id,o.deleted,o.visible,o.version,o.changeset,o.uid,o.timestamp,o.user.replace("'",""), o.jsontags))
 
+        ways_added+=1
         return queries
 
     # Return am array of SQL commands to insert a relation
     def insertRelationSQL(self,o):
 
+        global relations_added, relations_discarded
+
         if self.datatype!=RELATION_TYPE:
             return
+
+
         query = """INSERT INTO relations VALUES ({0}, {1}, {2} , {3}, {4}, {5}, '{6}','{7}','{8}');"""
-        node_way_query = """ INSERT INTO relations_members VALUES ({0}, {1}, {2}, '{3}', '{4}', {5}) """
 
-        queries = []
-
-        sequence_id=0
-        for member in o.members:
-            # Now to make sure that the zone is in the database, we want to make
-            # sure that either the node or the way is already in db (as both nodes insertion
-            # and ways insertion make sure that entity is in zone)
-            if member.type.replace("'","") == 'n':
-                #  If member is a node
-                node_query = """SELECT * from nodes where id = {0} limit 1;"""
-                current_node = self.executeSearchCommand(node_query.format(member.ref))
-                if current_node == None:
-                    continue
-
-            elif (member.type.replace("'","")) == 'w':
-                # if member is a way
-                way_query = """SELECT * from ways where id = {0} limit 1;"""
-                current_way = self.executeSearchCommand(way_query.format(member.ref))
-                if current_way == None:
-                    continue
-
-            else:
-                # if member is a relation
-                relation_query = """SELECT * from relations where id = {0} limit 1;"""
-                current_relation = self.executeSearchCommand(relation_query.format(member.ref))
-                if current_relation == None:
-                    continue
-
-            queries.append( node_way_query.format(o.id,o.version,member.ref,member.type.replace("'",""),member.role.replace("'",""),sequence_id) )
-            sequence_id += 1
+        queries = Manager().list()
+        p = Process(target=processDealWithRelation, args=(o,db,queries))
+        p.start()
+        p.join()
 
         if len (queries) == 0:
-            increaseDiscardedRelations()
+            logAction("Discarding a relation, id: "+str(o.id))
+            relations_discarded +=1
             return None
 
+        logAction("Adding a relation, id: "+str(o.id))
         queries.insert(0,query.format(o.id,o.deleted,o.visible,o.version,o.changeset,o.uid,o.timestamp,o.user.replace("'",""), o.jsontags))
 
+        relations_added+=1
         return queries
 
 class FileHandler(o.SimpleHandler):
@@ -321,25 +462,31 @@ class FileHandler(o.SimpleHandler):
         self.ways.executeCommands()
         self.rels.executeCommands()
 
-def increaseDiscardedNodes():
-    global nodes_discarded
-    nodes_discarded+=1
-
-def increaseDiscardedWays():
-    global ways_discarded
-    ways_discarded+=1
-
-def increaseDiscardedRelations():
-    global relations_discarded
-    relations_discarded+=1
-
 # Make sure given point is in defined zone
 def checkBoundary(x,y):
     return (x>=BOTTOM_LEFT_BOUNDARY[1] and x<=TOP_RIGHT_BOUNDARY[1] and
         y>=BOTTOM_LEFT_BOUNDARY[0] and y <= TOP_RIGHT_BOUNDARY[0])
 
+def logAction(action):
+    global actionsLogged, nodes_added,nodes_discarded, ways_added, ways_discarded, relations_added, relations_discarded,lastActionLogged
+
+    if lastActionLogged==0:
+        lastActionLogged = time.time()
+
+    actionsLogged += 1
+
+    if actionsLogged % 1000 == 0 or time.time() - lastActionLogged > 60:
+        file = open("logs/"+DB_NAME+"-log.txt","a")
+        file.write('\n'+action)
+        file.write("\nNodes added: "+str(nodes_added)+"\nNodes discarded: "+str(nodes_discarded)+
+         "\nWays added: "+str(ways_added)+ "\nWays discarded: " + str(ways_discarded) +
+         "\nRelations added: "+str(relations_added) + "\nRelations discarded: "+ str(relations_discarded)+"\n")
+        file.close()
+        lastActionLogged = time.time()
+
 
 if __name__ == '__main__':
+
     white = '\033[0m'
     blue = '\033[94m'
     orange = '\033[93m'
@@ -351,58 +498,95 @@ if __name__ == '__main__':
 
     starting_time = time.time()
 
-    if len(sys.argv) != 2:
+    if len(sys.argv) < 2:
         print("Usage: python osm-importer.py <osmfile>")
         sys.exit(-1)
 
     print(orange+"\nWarning: All single quote ' are deleted in tags and users'name"+white)
 
-    if sys.version_info[0] < 3:
-        # Create connection with db
-        DB_NAME = raw_input("Please enter dbname:")
-        print("\nConnecting to db... ")
-        db = DB()
-        print("OK")
-
-        print("Setting up the zone limit...")
-        BOTTOM_LEFT_BOUNDARY[0] = int(raw_input("Please enter bottom left boundary x:"))
-        BOTTOM_LEFT_BOUNDARY[1] = int(raw_input("Please enter bottom left boundary y:"))
-        TOP_RIGHT_BOUNDARY[0] = int(raw_input("Please enter top right boundary x:"))
-        TOP_RIGHT_BOUNDARY[1] = int(raw_input("Please enter top right boundary y:"))
+    # Create connection with db
+    if (not sys.argv[2] ):
+        if sys.version_info[0] < 3:
+            DB_NAME = raw_input("Please enter dbname:")
+        else:
+            DB_NAME = input("Please enter dbname:")
     else:
-        # Create connection with db
-        DB_NAME = input("lease enter dbname:")
-        print("\nConnecting to db... ")
-        db = DB()
-        print("OK")
+        DB_NAME = sys.argv[2]
 
-        print("Setting up the zone limit...")
-        BOTTOM_LEFT_BOUNDARY[0] = int(input("Please enter bottom left boundary x:"))
-        BOTTOM_LEFT_BOUNDARY[1] = int(input("Please enter bottom left boundary y:"))
-        TOP_RIGHT_BOUNDARY[0] = int(input("Please enter top right boundary x:"))
-        TOP_RIGHT_BOUNDARY[1] = int(input("Please enter top right boundary y:"))
+    print("\nConnecting to db... ")
+    db = DB()
+    print("OK")
 
+    #  Set up zone limit
+    print("Setting up the zone limit...")
+    if len(sys.argv) < 6:
+        if sys.version_info[0] < 3:
+            BOTTOM_LEFT_BOUNDARY[0] = int(raw_input("Please enter bottom left boundary x:"))
+            BOTTOM_LEFT_BOUNDARY[1] = int(raw_input("Please enter bottom left boundary y:"))
+            TOP_RIGHT_BOUNDARY[0] = int(raw_input("Please enter top right boundary x:"))
+            TOP_RIGHT_BOUNDARY[1] = int(raw_input("Please enter top right boundary y:"))
+        else:
+            BOTTOM_LEFT_BOUNDARY[0] = int(input("Please enter bottom left boundary x:"))
+            BOTTOM_LEFT_BOUNDARY[1] = int(input("Please enter bottom left boundary y:"))
+            TOP_RIGHT_BOUNDARY[0] = int(input("Please enter top right boundary x:"))
+            TOP_RIGHT_BOUNDARY[1] = int(input("Please enter top right boundary y:"))
+    else:
+        BOTTOM_LEFT_BOUNDARY[0] = int(sys.argv[3])
+        BOTTOM_LEFT_BOUNDARY[1] = int(sys.argv[4])
+        TOP_RIGHT_BOUNDARY[0] = int(sys.argv[5])
+        TOP_RIGHT_BOUNDARY[1] = int(sys.argv[6])
+    print("OK")
 
+    print("Output will be in : logs/"+DB_NAME+"-log.txt")
+
+    file = open("logs/"+DB_NAME+"-log.txt","w")
 
     # Parse file and importing
-    print("Parsing and importing nodes... ")
+    file.write("\n\n------------------------------\nParsing and importing nodes...")
+    file.write("\nTime elapsed: "+str(time.time()-starting_time))
+    file.close()
+    print("Parsing and importing nodes...")
+    print("Time elapsed: "+str(time.time()-starting_time))
     n = FileHandler(db)
     n.apply_file(sys.argv[1])
     n.finish_remaining_commands()
 
-    print("Parsing and importing ways... ")
+    file = open("logs/"+DB_NAME+"-log.txt","a")
+    file.write("\n\n------------------------------\nParsing and importing ways...")
+    file.write("\nTime elapsed: "+str(time.time()-starting_time))
+    file.close()
+    print("Parsing and importing ways...")
+    print("Time elapsed: "+str(time.time()-starting_time))
     n.current_type = WAY_TYPE
     n.apply_file(sys.argv[1])
     n.finish_remaining_commands()
 
-    print("Parsing and importing relations... ")
-    n.current_type = RELATION_TYPE
-    n.apply_file(sys.argv[1])
-    n.finish_remaining_commands()
+    # file = open("logs/"+DB_NAME+"-log.txt","a")
+    # file.write("\n\n------------------------------\nParsing and importing relations... ")
+    # file.write("\nTime elapsed: "+str(time.time()-starting_time))
+    # file.close()
+    # print("Parsing and importing relations..")
+    # print("Time elapsed: "+str(time.time()-starting_time))
+    # n.current_type = RELATION_TYPE
+    # n.apply_file(sys.argv[1])
+    # n.finish_remaining_commands()
+    print("Skipping relations imports")
 
+    # Print report to output
     print(green+"Import successful!"+white)
-    print(time.time()-starting_time)
+    print("Time elapsed: "+str(time.time()-starting_time))
 
     print('nodes_discarded: '+str(nodes_discarded))
     print('ways_discarded: '+str(ways_discarded))
     print('relations_discarded: '+str(relations_discarded))
+
+    # Print output tp file
+    file = open("logs/"+DB_NAME+"-log.txt","a")
+    file.write("\n\n------------------------------\nImport successful!")
+    file.write("Time elapsed: "+str(time.time()-starting_time))
+
+    file.write('nodes_discarded: '+str(nodes_discarded))
+    file.write('ways_discarded: '+str(ways_discarded))
+    file.write('relations_discarded: '+str(relations_discarded))
+
+    file.close()
