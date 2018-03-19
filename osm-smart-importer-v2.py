@@ -96,7 +96,7 @@ class DB(object):
             latitude INT NOT NULL,
             longitude INT NOT NULL,
             foreign key (id,version) references ways(id,version),
-            PRIMARY KEY (id,version,sequence_id)
+            PRIMARY KEY (id,version,sequence_id,node_id,node_version)
         )
         """,
         """CREATE TABLE IF NOT EXISTS relations (
@@ -127,20 +127,20 @@ class DB(object):
         self.execute(commands)
 
     def execute(self,commands=[]):
-        try:
-            cur = self.connection.cursor()
-            # create table one by one
-            for command in commands:
+        for command in commands:
+            try:
+                cur = self.connection.cursor()
+
                 cur.execute(command)
-
-            # close communication with the PostgreSQL database server
-            cur.close()
-
-            # commit the changes
-            self.connection.commit()
-        except (Exception, psycopg2.DatabaseError) as error:
-            print('\033[91m'+"\nSQL ERROR:\n"+str(error)+'\033[0m')
-            sys.exit(-1)
+                cur.close()
+            except (Exception, psycopg2.DatabaseError) as error:
+                print('\033[91m'+"\nSQL ERROR:\n"+str(error)+'\033[0m')
+                print('Ignoring error...')
+                self.connection.rollback()
+                # sys.exit(-1)
+            else:
+                # commit the changes
+                self.connection.commit()
 
     def executeAndReturn(self,command):
         try:
@@ -477,7 +477,7 @@ def logAction(action):
 
     if actionsLogged % 1000 == 0 or time.time() - lastActionLogged > 60:
         file = open("logs/"+DB_NAME+"-log.txt","a")
-        file.write('\n'+action)
+        file.write('\n'+str(actionsLogged)+" | "+action)
         file.write("\nNodes added: "+str(nodes_added)+"\nNodes discarded: "+str(nodes_discarded)+
          "\nWays added: "+str(ways_added)+ "\nWays discarded: " + str(ways_discarded) +
          "\nRelations added: "+str(relations_added) + "\nRelations discarded: "+ str(relations_discarded)+"\n")
